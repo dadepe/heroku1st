@@ -22,32 +22,7 @@ app.use(session({
   cookie: { secure: false }
 }))
 
-app.get('/', (req, res) => res.send("halo"))
-app.get('/register', (req, res) => {
-    let err = null;
-    res.render('register.ejs', {err})
-})
 
-
-
-app.post(`/register`, function (req, res) {
-    User
-        .create({
-            UserName: req.body.userName,
-            FirstName: req.body.firstName,
-            LastName: req.body.lastName,
-            Email: req.body.email,
-            Address: req.body.address,
-            Birthday: req.body.birthday,
-            Password: req.body.password,
-        })
-        .then(function () {
-            res.redirect(`/`)
-        })
-        .catch(function (err) {
-            res.render("register", {err})
-        })
-    })
 // login
 app.get(`/`, function (req, res) {
     let error = null
@@ -82,7 +57,31 @@ app.post(`/`, function (req, res) {
         })
     })
 
-//halaman user
+    app.get('/register', (req, res) => {
+        let err = null;
+        res.render('register.ejs', {err})
+    })
+    
+    
+    
+    app.post(`/register`, function (req, res) {
+        User
+            .create({
+                UserName: req.body.userName,
+                FirstName: req.body.firstName,
+                LastName: req.body.lastName,
+                Email: req.body.email,
+                Address: req.body.address,
+                Birthday: req.body.birthday,
+                Password: req.body.password,
+            })
+            .then(function () {
+                res.redirect(`/`)
+            })
+            .catch(function (err) {
+                res.render("register", {err})
+            })
+        })
 
 //halaman user
 
