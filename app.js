@@ -43,8 +43,6 @@ app.post(`/`, function (req, res) {
 
             } else {
                 let error = "error"
-                // console.log(error);
-
                 res.render("index", {error})
             }
 
