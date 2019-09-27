@@ -22,7 +22,7 @@ app.use(session({
   cookie: { secure: false }
 }))
 
-app.get('/', (req, res) => res.render('index'))
+app.get('/', (req, res) => res.send("halo"))
 app.get('/register', (req, res) => {
     let err = null;
     res.render('register.ejs', {err})
