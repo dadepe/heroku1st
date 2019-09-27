@@ -21,7 +21,8 @@ app.use(session({
   saveUninitialized: true,
   cookie: { secure: false }
 }))
-// app.get('/', (req, res) => res.render('index'))
+
+app.get('/', (req, res) => res.render('index'))
 app.get('/register', (req, res) => {
     let err = null;
     res.render('register.ejs', {err})
