@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/bc382c3fce.js" crossorigin="anonymous"></script>
+    <title>Hello, world!</title>
+    <style>
+        body{
+            background-image: url('/img/userbg.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+        }
+        .menu {
+            background-color: rgba(9, 132, 227,0.5);
+        }
+        .logo{
+            width: 18vw;
+        }
+        .containermain{
+            margin: 50px auto;
+            display: flex;
+        }
+        .carousel {
+            width: 50%;
+            margin: auto;
+        }
+        .w-100 {
+            width: 50% !important;
+            margin: auto;
+        }
+        .card {
+            height: 40%;
+        }
+        /* --------------- */
+        @import url(https://fonts.googleapis.com/css?family=Open+sans);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display);
+.snip1515 {
+  font-family: 'Open Sans', Arial, sans-serif;
+  position: relative;
+  margin: 10px auto;
+  min-width: 230px;
+  max-width: 315px;
+  width: 100%;
+  color: #000000;
+  text-align: center;
+  line-height: 1.4em;
+  font-size: 14px;
+  box-shadow: none !important;
+}
+
+.snip1515 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.snip1515 .profile-image {
+  display: inline-block;
+  width: 80%;
+  z-index: 1;
+  position: relative;
+  padding: 10px;
+  border: 2px solid #e8b563;
+}
+
+.snip1515 .profile-image img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+.snip1515 figcaption {
+  width: 100%;
+  background-color: rgba(223, 230, 233,1.0);
+  color: #555;
+  /* padding: 15px 25px 25px; */
+  /* margin-top: -10px; */
+  /* display: inline-block; */
+  /* width: 100%;
+  background-color: rgb(134, 115, 115); */
+  color: black;
+  padding: 125px 25px 25px;
+  margin-top: -100px;
+  display: inline-block;
+}
+
+.snip1515 h3,
+.snip1515 h4,
+.snip1515 p {
+  margin: 0 0 5px;
+}
+
+.snip1515 h3 {
+  color: white;
+  text-shadow: 2px 2px black;
+  font-weight: 600;
+  font-size: 30px;
+  font-family: 'Playfair Display', Arial, sans-serif;
+}
+
+.snip1515 h4 {
+  color: #8c8c8c;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.snip1515 p {
+  margin-top: 10px;
+  text-align: left !important;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: #000000;
+  opacity: 0.9;
+}
+
+.snip1515 .icons {
+  text-align: center;
+  width: 100%;
+}
+
+.snip1515 i {
+  padding: 10px 2px;
+  /* display: inline-block; */
+  font-size: 18px;
+  /* font-weight: normal; */
+  /* color: #e8b563; */
+  /* opacity: 0.75; */
+}
+
+.snip1515 i:hover {
+  opacity: 1;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+
+img{
+  width: 100%; 
+  height: 100%;
+
+}
+        </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-light navbar-1 menu sticky-top">
+        <a class="navbar-brand" href="#"><img class="logo" src="/img/logo.png" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent15"
+          aria-controls="navbarSupportedContent15" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent15">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Logout <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">???????</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <!-- ---------------- -->
+
+    <!-- USER PROFILE -->
+
+  <div class="container-fluid">
+    <!-- <div class="containermain">
+        <div class="card" style="width: 18rem;">
+            <%if(data.avatar){%>
+              <img src="data:image/png;base64,<%=data.avatar%>" class="card-img-top" >
+            <%} else{%>
+              <img src="/img/empty-profile.png" class="card-img-top" >
+            <%}%>
+        
+            <div class="card-body">
+              <h5 class="card-title"><%=data.UserName%></h5>
+              <p><%=data.FirstName%></p>
+              <p><%=data.LastName%></p>
+              <p><%=data.Address%></p>
+              <p><%=data.Birthday%></p>
+              <p>Interests:</p>
+              <ul>
+                <%for(let j = 0; j < tagName.length; j++ ){%>
+                  <li><%=tagName[j].name%></li>
+                <%}%>
+              </ul>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              
+              
+            </div>
+    
+          </div>
+    </div> -->
+    <div class="container">
+        <figure class="snip1515">
+            <div class="profile-image">
+                <%if(data.avatar){%>
+                  <img src="data:image/png;base64,<%=data.avatar%>" class="card-img-top" >
+                <%} else{%>
+                  <img src="/img/empty-profile.png" class="card-img-top" >
+                <%}%>
+            </div>
+            <figcaption>
+              <h3><%=data.UserName%></h3>
+              <div style="background-color: rgba(9, 132, 227,0.5); text-align: center; padding: 10px;">
+                  <p><%=data.description%></p>
+              </div>
+              <p>Name: <%=data.FirstName%> <%=data.LastName%></p>
+              <p>Address: <%=data.Address%></p>
+              <p>Birthday: <%=data.Birthday%></p>
+              <p>Interests:</p>
+              
+              <%for(let j = 0; j < tagName.length; j++ ){%>
+                <p><i class="fas fa-tag"></i><%=tagName[j].name%></p>
+              <%}%>
+              <a class="btn btn-primary" href="/match" role="button" style="display:block;text-align:center; margin-bottom: 20px; font-size: 20px; font-weight: bold;">Get Some Friend</a>
+            </figcaption>
+          </figure>
+    </div>
+      
+  </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+
+

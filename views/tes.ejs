@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/bc382c3fce.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+      
+    <title>Hello, world!</title>
+    <style>
+           body{
+            background-image: url('/img/userbg.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+        }
+      .carousel {
+            width: 50%;
+            margin: auto;
+        }
+        .w-100 {
+            width: 50% !important;
+            margin: auto;
+        }
+        .img{
+            height: 10%;
+        }
+        .container{
+            display: flex;
+            flex-direction:column;
+        }
+        .w-100{
+            width: 20% !important;
+        }
+        /* ------------- */
+        * {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  width: 100%;
+}
+
+.wrap {
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  padding: 0 60px;
+  -webkit-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.wrap:after {
+  content:'';
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background: rgba(0,0,0,.5); */
+}
+
+.slider {
+  position: relative;
+  z-index: 200;
+  padding: 0 0px;
+  margin: 5rem auto;
+  max-width: 800px;
+  width: 100%;
+}
+
+.slick-arrow {
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 50px;
+  line-height: 50px;
+  margin-top: -25px;
+  border: none;
+  
+  background: transparent;
+  color: #fff;
+  font-family: monospace;
+  font-size: 5rem;
+  z-index: 300;
+  outline: none;
+}
+
+.slick-prev {
+  left: -50px;
+  text-align: left;
+}
+
+.slick-next {
+  right: -50px;
+  text-align: right;
+}
+
+
+
+.item.slick-slide {
+  width: 400px;
+  height: 400px !important;
+  transition: transform .4s;
+  position: relative; 
+}
+
+.slick-slide:after {
+  content:'';
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,.5);
+  transition: transform .4s;
+}
+
+.item.slick-slide {
+  transform: scale(0.7)  translate(640px);
+}
+
+.item.slick-slide.slick-center + .slick-slide {
+  transform: scale(0.8) translate(-250px);
+  z-index: 10;
+}
+
+.item.slick-slide.slick-center + .slick-slide + .item.slick-slide {
+  transform: scale(0.7)  translate(-640px);
+  z-index: 5;
+}
+
+.item.slick-slide.slick-active {
+  transform: scale(0.8) translate(250px);
+}
+
+.item.slick-slide.slick-center {
+  /* margin: 0 -10%; */
+  transform: scale(1);
+  z-index: 30;
+}
+
+.slick-center:after {
+  opacity: 0;
+}
+    </style>
+  </head>
+  <body>
+    <!-- <h1>Hello, world!</h1> -->
+    <div class="container">
+        <div class="wrap">  
+          <div class="slider">
+              <%for(let i = 0; i < data.Tags.length; i++){%>
+                <%for(let j = 0; j < data.Tags[i].Users.length; j++){%>
+                  <%if(data.Tags[i].Users[j].avatar){%>
+                    <div class="item">
+                        <a href="/otheruser/<%=data.Tags[i].Users[j].UserName%>"><img src="data:image/png;base64,<%=data.Tags[i].Users[j].avatar%>" alt="..."></a>
+                        <h3><%=data.Tags[i].Users[j].UserName%></h3>
+                        <a class="btn btn-primary" href="/otheruser/<%=data.Tags[i].Users[j].UserName%>" role="button">Know More</a>
+                    </div>
+                  <%}else{%>
+                    <div class="item">
+                        <a href="/otheruser/<%=data.Tags[i].Users[j].UserName%>"><img src="data:image/png;base64,<%=data.Tags[i].Users[j].avatar%>" alt="..."></a>
+                        <h3><%=data.Tags[i].Users[j].UserName%></h3>
+                        <a class="btn btn-primary" href="/otheruser/<%=data.Tags[i].Users[j].UserName%>" role="button">Know More</a>
+                    </div>
+                  <%}%>
+              <%}%>
+                <!--  -->
+        
+
+            <%}%>
+          </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script>
+    $('.slider').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  arrows: true,
+  dots: false,
+  centerMode: true,
+  variableWidth: true,
+  infinite: true,
+  focusOnSelect: true,
+  cssEase: 'linear',
+  touchMove: true,
+  prevArrow:'<button class="slick-prev"> < </button>',
+  nextArrow:'<button class="slick-next"> > </button>',
+  
+  //         responsive: [                        
+  //             {
+  //               breakpoint: 576,
+  //               settings: {
+  //                 centerMode: false,
+  //                 variableWidth: false,
+  //               }
+  //             },
+  //         ]
+});
+
+
+var imgs = $('.slider img');
+imgs.each(function(){
+  var item = $(this).closest('.item');
+  item.css({
+    'background-image': 'url(' + $(this).attr('src') + ')', 
+    'background-position': 'center',            
+    '-webkit-background-size': 'cover',
+    'background-size': 'cover', 
+  });
+  $(this).hide();
+});
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

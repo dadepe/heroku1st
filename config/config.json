@@ -1,0 +1,17 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "datingApp",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "favljrrwrtxeyx",
+    "password": "b64a92abff68514e5f0300b941a2f423bfc68cc9cfed0eda13bdb4e690547b36",
+    "database": "d9q5fsuokmsb0s",
+    "host": "ec2-54-243-208-234.compute-1.amazonaws.com",
+    "dialect": "postgres"
+  }
+}
+

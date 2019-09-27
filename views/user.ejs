@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous">
+            <script src="https://kit.fontawesome.com/bc382c3fce.js" crossorigin="anonymous"></script>
+        <title>Hello, world!</title>
+        <style>
+            body {
+                background-image: url("/img/userbg.jpg");
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: 100%;
+            }
+            .menu {
+                background-color: rgba(9, 132, 227,0.5);
+            }
+            .logo {
+                width: 18vw;
+            }
+            /* .containermain {
+                margin: 50px auto;
+                display: flex;
+            } */
+            .carousel {
+                width: 50%;
+                margin: auto;
+            }
+            .w-100 {
+                width: 50% !important;
+                margin: auto;
+            }
+            .card {
+                height: 40%;
+            }
+            /* ----------- */
+            @import "compass/css3";
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
+
+
+
+h1 {
+  font-family: "Open Sans", sans;
+  font-weight:bold;
+  text-align:center;
+  color:rgba(255,255,255,1.0);
+  text-shadow: 5px 5px black;
+}
+
+h2 {
+  color:#2c3e52;
+  font-family:  "Open Sans", sans;
+  text-align:center;
+  font-weight:bold;
+  margin-bottom:50px;
+  
+}
+
+.service-details {
+	/*width: 460px;*/
+	height: 450px;	
+	/*height: 230px;*/
+	/* overflow: hidden; */
+	position: relative;
+    margin-bottom: 50px;
+}
+
+.service-details img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: inherit;
+	width: auto;
+	height: 100%;
+	float: left;
+	transition: all 0.8s;
+	-moz-transition: all 0.8s;
+
+}
+
+
+
+.service-details .service-hover-text h3 {
+	padding: 0px;
+	margin: 0px;
+	font-size: 25px;
+  font-weight:300;
+	font-family: "Open Sans";
+}
+
+.service-details .service-hover-text h4 {
+	padding: 0px;
+	padding-bottom: 13px;
+	margin: 0px;
+	font-size: 14px;
+  letter-spacing: 3px;
+	width: 90%;
+	font-family: "Open Sans";
+  text-transform:uppercase;
+	border-bottom: 2px solid #000;
+}
+
+.service-details .service-hover-text p {
+	padding-top: 13px;
+	font-size: 14px;
+	line-height: 20px;
+	font-family: "Open Sans";
+}
+
+
+.service-details .service-hover-text{
+	width: 42%;
+	height: 89%;
+	position: absolute;
+	top: 0%;
+	left: 50%;
+	padding: 3% 4%;
+	background: rgba(116, 185, 255,0.9);
+	color: rgba(255,255,255,1);
+/*	display: none;*/
+	transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.4s;
+}
+
+.service-details:hover .service-hover-text {
+	display: block !important;
+	color: rgba(255,255,255,1);
+	background:rgba(116, 185, 255,0.9);
+	left: 0px;
+	top: 0px;
+}
+
+
+.service-details .service-text {
+	width: 50%;
+	height: inherit;
+	background: #000;
+	float: left;
+	position: absolute;
+	left: 50%;
+}
+
+.service-details .service-text p {
+	/* padding:100px 0px 0px 20px; */
+	font-size: 24px;
+	font-family: "Open Sans";
+  font-weight:700;
+	color: #fff;
+}
+
+.service-details .service-text p span {
+	font-family: "Open Sans" !important;
+}
+
+.service-details .service-text a , .service-white .service-text {
+	padding: 0px 0px 0px 20px;
+	font-size: 14px !important;
+	color:#FF5A22 !important;
+	font-family: "Open Sans" !important;
+	text-decoration: none !important; 
+}
+
+.service-details .service-text {
+	float: left;
+} 
+
+.service-white {
+	background: #d2faf2!important;
+	width: 50% !important;
+	height: inherit !important;
+}
+
+.service-white p {
+	color: #000 !important;
+}
+            /* ------------- */
+        </style>
+    </head>
+    <body>
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-light navbar-1 menu sticky-top">
+            <a class="navbar-brand" href="#"><img class="logo" src="/img/logo.png" alt=""></a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent15"
+                aria-controls="navbarSupportedContent15"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent15">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Logout
+                            <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">???????</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- ---------------- -->
+
+        <!-- USER PROFILE -->
+
+        <div class="container-fluid">
+            <div class="container">
+                    <h1>Hei <%=data.UserName%> Lets Make Friend</h1>
+                    
+                    <div class="service-details">
+                      <!-- <img src="https://i.imgur.com/SkFZNy4.jpg" alt="realm"> -->
+                      <%if(data.avatar){%>
+                        <img src="data:image/png;base64,<%=data.avatar%>" class="card-img-top">
+                    <%} else{%>
+                        <img src="/img/empty-profile.png" class="card-img-top">
+                    <%}%>
+                    
+                      <div class="service-hover-text">
+                          
+                            <h2 class="card-title"><%=data.UserName%></h2>
+                            <%for(let j = 0; j < tagName.length; j++ ){%>
+                                <i class="fas fa-tags"></i> <%=tagName[j].name%>
+
+                            <%}%>
+                            <%if(data.description){%>
+                                <p class="card-text" style="font-size: 20px;"><%=data.description%></p>
+                            <%}%>
+                      </div>
+                      <div class="service-white service-text">
+                            <form action="/user" enctype="multipart/form-data" method="POST" style="margin:2vh 5vw;">
+                                <p style="font-size: 18px !important;">Edit Profile Picture</p>
+                        <input type="file" name="avatar">
+                        <input class="btn-primary" type="submit" value="add Avatar">
+                        
+                     
+                    </form>
+                            <form action="/user?description=true" method="POST" style="margin:2vh 5vw;">
+                                <textarea name="description" cols="45vw" rows="5" style="background-color: rgba(116, 185, 255,0.9); margin-top: 10px;">Describe Yourself</textarea>
+                            </br>
+                                <input class="btn-primary" type="submit" value="Add Bio">
+                            </form>
+                            <form action="/user/?tag=true" method="POST" style="text-align: center">
+                                <p style="font-size: 18px !important; margin-top: 20px;">Choose Tags thats describe you the most!</p>
+                                <select name="tag">
+                                    <% for(let i =0; i< dataTag.length; i++){ %>
+                                        <option value="<%= dataTag[i].id %>"><%= dataTag[i].name %></option>
+                                    <% } %>
+                                    <br>
+                                </select>
+                                <input class="btn-primary" type="submit" value="Add Interest">
+                            </form>
+                      </div>
+                    </div>
+                    <a class="btn btn-primary" href="/match" role="button" style="display:block;text-align:center; margin-bottom: 20px; font-size: 20px; font-weight: bold;">Get Some Friend</a>
+                <!-- <div class="card" style="width: 18rem;">
+                    <%if(data.avatar){%>
+                        <img src="data:image/png;base64,<%=data.avatar%>" class="card-img-top">
+                    <%} else{%>
+                        <img src="/img/empty-profile.png" class="card-img-top">
+                    <%}%>
+                    // ------------ sudahhhhhhhh------------------------------------------------
+                    <form
+                        action="/user/<%= data.UserName%>"
+                        enctype="multipart/form-data"
+                        method="POST">
+                        <input type="file" name="avatar">
+                        <input type="submit" value="add Avatar">
+
+                    </form>
+
+                    <div class="card-body">
+                        <h5 class="card-title"><%=data.UserName%></h5>
+                        <p>Interests:</p>
+                        <ul>
+                            <%for(let j = 0; j < tagName.length; j++ ){%>
+                                <li><%=tagName[j].name%></li>
+
+                            <%}%>
+                        </ul>
+                        <%if(data.description){%>
+                            <p class="card-text"><%=data.description%></p>
+                        <%}%>
+                        <form action="/user/<%= data.UserName%>?description=true" method="POST">
+                            <textarea name="description" cols="20" rows="10">Describe Yourself</textarea>
+                            <input type="submit" value="Add Bio">
+                        </form>
+                        <a class="btn btn-primary" href="/match/<%=data.UserName%>" role="button">Get Some Friend</a>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div> -->
+                    <!-- <form action="/user/<%= data.UserName%>?tag=true" method="POST" style="text-align: center">
+                        <select name="tag">
+                            <% for(let i =0; i< dataTag.length; i++){ %>
+                                <option value="<%= dataTag[i].id %>"><%= dataTag[i].name %></option>
+                            <% } %>
+                            <br>
+                        </select>
+                        <input type="submit" value="Add Interest">
+                    </form> -->
+                </div> 
+
+
+                <!-- user match  fotoo-->
+                <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+
+                            <img src="/img/user1.jpg" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <a
+                        class="carousel-control-prev"
+                        href="#carouselExampleControls"
+                        role="button"
+                        data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a
+                        class="carousel-control-next"
+                        href="#carouselExampleControls"
+                        role="button"
+                        data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div> -->
+
+            </div>
+
+        </div>
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    </body>
+</html>
