@@ -10,6 +10,60 @@ const UserTags = require("./models").UserTags
 const hash = require("./helpers/hashPassword")
 const multer = require('multer')
 const upload = multer({})
+const loginMiddleware = function (req, res, next){
+    User
+    .findOne({
+        where: {
+            Email: req.body.email
+        }
+    })
+    .then(function (data) {
+        req.session.user = data.dataValues.UserName
+        if (data.dataValues.Password === hash(req.body.password, data.dataValues.salt)) {
+            next ()
+
+        } else {
+            let error = "error"
+            res.render("index", {error})
+        }
+
+    })
+    .catch(function (err) {
+        let error = "error"
+        console.log(err.message);
+        res.render("index", {error})
+    })
+}
+
+
+const userMiddleware = function (req, res, next){
+    if(req.session.user){
+        next()
+    }else{
+        res.redirect(`/`)
+    }
+}
+
+const matchMiddleware = function(req, res, next){
+    User
+    .findOne({
+        where: {
+            UserName: req.session.user
+        },
+        include: Tag
+    })
+    .then(function (data) {
+        if(data.Tags.length){
+            next()
+        }else{
+            res.redirect ("/user")
+        }
+    })
+    .catch(function(err){
+        console.log(err)
+    })
+}
+
 app.use(express.static("public"));
 app.set('view engine', 'ejs')
 app.use(express.json())
@@ -21,69 +75,73 @@ app.use(session({
   saveUninitialized: true,
   cookie: { secure: false }
 }))
+// app.get('/', (req, res) => res.render('index'))
+app.get('/register', (req, res) => {
+    let err = null;
+    res.render('register.ejs', {err})
+})
 
 
+
+app.post(`/register`, function (req, res) {
+    User
+        .create({
+            UserName: req.body.userName,
+            FirstName: req.body.firstName,
+            LastName: req.body.lastName,
+            Email: req.body.email,
+            Address: req.body.address,
+            Birthday: req.body.birthday,
+            Password: req.body.password,
+        })
+        .then(function () {
+            res.redirect(`/`)
+        })
+        .catch(function (err) {
+            res.render("register", {err})
+        })
+    })
 // login
 app.get(`/`, function (req, res) {
     let error = null
     res.render("index", {error})
 })
 
-app.post(`/`, function (req, res) {
-    User
-        .findOne({
-            where: {
-                Email: req.body.email
-            }
-        })
-        .then(function (data) {
-            req.session.user = data.dataValues.UserName
-            if (data.dataValues.Password === hash(req.body.password, data.dataValues.salt)) {
-                res.redirect(`/user`);
-
-            } else {
-                let error = "error"
-                res.render("index", {error})
-            }
-
-        })
-        .catch(function (err) {
-            // let error = "error"
-            console.log(err.message);
-
-            res.render("index", {err})
-        })
+app.post(`/`, loginMiddleware, function (req, res) {
+        res.redirect(`/user`)
     })
 
-    app.get('/register', (req, res) => {
-        let err = null;
-        res.render('register.ejs', {err})
-    })
-    
-    
-    
-    app.post(`/register`, function (req, res) {
-        User
-            .create({
-                UserName: req.body.userName,
-                FirstName: req.body.firstName,
-                LastName: req.body.lastName,
-                Email: req.body.email,
-                Address: req.body.address,
-                Birthday: req.body.birthday,
-                Password: req.body.password,
-            })
-            .then(function () {
-                res.redirect(`/`)
-            })
-            .catch(function (err) {
-                res.render("register", {err})
-            })
-        })
+// app.post(`/`, function (req, res) {
+//     User
+//         .findOne({
+//             where: {
+//                 Email: req.body.email
+//             }
+//         })
+//         .then(function (data) {
+//             req.session.user = data.dataValues.UserName
+//             if (data.dataValues.Password === hash(req.body.password, data.dataValues.salt)) {
+//                 res.redirect(`/user`);
+
+//             } else {
+//                 let error = "error"
+//                 // console.log(error);
+
+//                 res.render("index", {error})
+//             }
+
+//         })
+//         .catch(function (err) {
+//             // let error = "error"
+//             console.log(err.message);
+
+//             res.render("index", {err})
+//         })
+//     })
 
 //halaman user
 
-app.get('/user', (req, res) => {
+app.get('/user',userMiddleware, (req, res) => {
     let dataUser = null;
     let dataTag = null;
     return User
@@ -172,7 +230,7 @@ app.post('/user', upload.single('avatar'), function (req, res, next) {
 
 //cek match
 
-app.get(`/match`, function (req, res) {
+app.get(`/match`, matchMiddleware,function (req, res) {
     User
         .findOne({
             where: {
@@ -200,6 +258,13 @@ app.get(`/match`, function (req, res) {
             res.render('match', {data})
             // res.send(data.Tags[0].Users)
         })
+        .catch(function(err){
+            console.log(err)
+            res.redirect(`/`)
+        })
+
+
+
     app.get(`/otheruser/:username`, (req, res) => {
         let dataUser = null;
         let dataTag = null;
@@ -228,7 +293,6 @@ app.get(`/match`, function (req, res) {
             })
             .catch(err => {
                 console.log(err.message);
-
                 res.send(err);
             })
         })
